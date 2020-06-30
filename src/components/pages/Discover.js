@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Photo from "../Photo";
+import LikeButton from "../LikeButton";
+import UnLikeButton from "../UnLikeButton";
 
 class Discover extends Component {
   state = {
@@ -21,7 +23,13 @@ class Discover extends Component {
   };
 
   render() {
-    return <Photo src={this.state.result.message} />;
+    return (
+      <div>
+        <Photo src={this.state.result.message} />
+        <LikeButton />
+        <UnLikeButton />
+      </div>
+    );
   }
 }
 
