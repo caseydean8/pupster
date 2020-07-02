@@ -8,7 +8,7 @@ class Discover extends Component {
   state = {
     result: {},
     friends: 0,
-    // string: "friends",
+    string: "",
   };
 
   componentDidMount() {
@@ -34,10 +34,11 @@ class Discover extends Component {
     const rand1 = Math.floor(Math.random() * 3) + 1;
     const rand2 = Math.floor(Math.random() * 3) + 1;
     if (rand1 === rand2) {
+      this.likeBack(true);
       let friend = this.state.friends;
-      // this.stringGrammar();
-      this.setState({ friends: friend + 1 });
-      console.log("match");
+      this.setState({ friends: friend + 1, string: "He Likes You!" });
+    } else {
+      this.setState({ string: "" });
     }
     console.log(this.state.friends);
   };
@@ -53,6 +54,7 @@ class Discover extends Component {
         <LikeButton handleClick={this.handleClick} />
         <UnLikeButton handleClick={this.handleClick} />
         <p>
+          {this.state.string}<br></br>
           You have {this.state.friends} dog {this.stringGrammar()}
         </p>
       </div>
