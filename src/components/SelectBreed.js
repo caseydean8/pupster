@@ -1,15 +1,11 @@
 import React from "react";
 
-function SelectBreed() {
+function SelectBreed(props) {
   return (
     <div className="form-group">
+      <form onSubmit={props.handleSubmit}>
       <label htmlFor="sel1">Select Breed:</label>
-      <select className="form-control" id="sel1">
-        {/* <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option> */}
-        {/* <select class="dog-selector"> */}
+      <select className="form-control" id="sel1" value={props.value} onChange={props.handleChange}>
         <option value="affenpinscher">affenpinscher</option>
         <option value="african">african</option>
         <option value="airedale">airedale</option>
@@ -155,6 +151,14 @@ function SelectBreed() {
         <option value="wolfhound-irish">irish wolfhound</option>
       </select>
       {/* </select> */}
+      <button
+        type="submit"
+        className="btn btn-primary"
+        value="Submit"
+      >
+        Submit
+      </button>
+      </form>
     </div>
   );
 }
