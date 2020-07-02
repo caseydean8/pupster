@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SelectBreed from "../SelectBreed";
+// import Photo from "../Photo";
 
 class Search extends Component {
   state = {
@@ -23,6 +24,7 @@ class Search extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
+        {/* <Photo src= */}
       </div>
     );
   }
