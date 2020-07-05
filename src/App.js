@@ -11,15 +11,21 @@ class App extends Component {
     result: {},
     friends: 0,
     string: "",
+    value: "affenpinscher",
+    searchResult: [],
   };
 
   dogSearch = (breed) => {
     API.search(breed)
       .then((res) => {
-        this.setState({ result: res.data });
-        console.log(res.data);
+        breed
+          ? this.setState({ searchResult: res.data.message })
+          : this.setState({ result: res.data });
+        // console.log(res.data);
+        console.log('search result in state', this.state.searchResult);
       })
       .catch((err) => console.log(err));
+      // const searchedDogs = this.searchResult.map()
   };
 
   componentDidMount = () => {
@@ -36,7 +42,7 @@ class App extends Component {
     const rand1 = Math.floor(Math.random() * 3) + 1;
     const rand2 = Math.floor(Math.random() * 3) + 1;
     if (rand1 === rand2) {
-      this.likeBack(true);
+      // this.likeBack(true);
       let friend = this.state.friends;
       this.setState({ friends: friend + 1, string: "He Likes You!" });
     } else {
@@ -47,6 +53,16 @@ class App extends Component {
 
   stringGrammar = () => {
     return this.state.friends === 1 ? "friend" : "friends";
+  };
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    console.log(this.state.value);
+    event.preventDefault();
+    this.dogSearch(this.state.value);
   };
 
   render() {
@@ -70,7 +86,18 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/search" component={Search} />
+          <Route
+            exact
+            path="/search"
+            render={(props) => (
+              // {...props}
+              <Search
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                src={this.state.searchResult}
+              />
+            )}
+          />
         </div>
       </Router>
     );
