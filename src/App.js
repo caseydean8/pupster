@@ -22,7 +22,7 @@ class App extends Component {
           ? this.setState({ searchResult: res.data.message })
           : this.setState({ result: res.data });
         // console.log(res.data);
-        console.log('search result in state', this.state.searchResult);
+        // console.log('search result in state', this.state.searchResult);
       })
       .catch((err) => console.log(err));
       // const searchedDogs = this.searchResult.map()

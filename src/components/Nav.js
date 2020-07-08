@@ -33,14 +33,6 @@ function Nav() {
           Search
         </Link>
       </li>
-      {/* <li className="nav-item">
-        <Link
-          to="/contact/learn"
-          className={window.location.pathname === "/contact/learn" ? "nav-link active" : "nav-link"}
-        >
-          Learn
-        </Link>
-      </li> */}
     </ul>
   );
 }

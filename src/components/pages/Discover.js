@@ -51,6 +51,7 @@ function Discover(props) {
     return (
       <div>
         <Photo src={props.src} />
+        {/* Make these buttons render after picture */}
         <LikeButton handleClick={props.handleClick} />
         <UnLikeButton handleClick={props.handleClick} />
         <p>

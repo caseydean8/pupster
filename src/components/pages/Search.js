@@ -49,8 +49,8 @@ function Search(props) {
         handleSubmit={props.handleSubmit}
       />
       {/* <ShowImage /> */}
-      {props.src.map((item) => (
-        <Photo src={item} />
+      {props.src.map((item, index) => (
+        <Photo key={index} src={item} />
       ))}
     </div>
   );
